@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelPlannerWorld-ingreso</title>
+  <link rel="stylesheet" href="ingreso.css">
+</head>
+
+<body>
+  <!-- solo gmail y contraseña -->
+  <div class="contenedor">
+    <div class="form-contenedor">
+      <h1 class="titulo">Ingresar</h1>
+      <form action="" id="ingresop">
+        <div class="grupo">
+          <div class="fila">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input type="email" id="email" placeholder="Correo" required autofocus>
+          </div>
+          <div class="fila">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" id="password" placeholder="Contraseña" required>
+          </div>
+
+          <!-- point ingress -->
+          <p>¿No tines una cuenta? <a href="registro.html"> registrate!</a></p>
+        </div>
+        <div class="btn-field">
+          <input type="submit" value="Ingresar">
+      </form>
+    </div>
+  </div>
+  <script src="ingreso.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+</body>

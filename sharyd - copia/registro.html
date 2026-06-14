@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelPlannerWorld - Registro</title>
+    <link rel="stylesheet" href="registro.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="form-contenedor">
+            <h1 class="titulo">Crear Cuenta</h1>
+            <form id="register-form">
+                <div class="fila">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <input type="text" id="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="fila">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" id="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="fila">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" id="password" placeholder="Contraseña" minlength="6" required>
+                </div>
+                <div class="fila">
+                    <ion-icon name="earth-outline"></ion-icon>
+                    <select id="country" required>
+                        <option value="">País de residencia</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="México">México</option>
+                        <option value="España">España</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Perú">Perú</option>
+                        <option value="Estados Unidos">Estados Unidos</option>
+                        <option value="Brasil">Brasil</option>
+                    </select>
+                </div>
+                <p>¿Ya tienes cuenta? <a href="ingreso.html">Iniciar sesión</a></p>
+                <div class="btn-field">
+                    <input type="submit" value="Registrarse">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="registro.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

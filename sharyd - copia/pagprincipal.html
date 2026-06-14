@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelExploret</title>
+    <link rel="stylesheet" href="pagprincipal.css">
+</head>
+
+<body>
+    <div class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
+    </div>
+    <div class="barra-lateral">
+        <div>
+            <div class="nombre-pagina">
+                <ion-icon id="compas" name="compass-outline"></ion-icon>
+                <span>Travel exploret</span>
+            </div>
+        </div>
+
+        <nav class="navegacion">
+            <ul>
+                <li>
+                    <a href="#dashboard-section" class="nav-link home active-link">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#explorar-section" class="nav-link buscador">
+                        <ion-icon name="search-outline"></ion-icon>
+                        <span>Explorar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#atracciones-section" class="nav-link map">
+                        <ion-icon name="map-outline"></ion-icon>
+                        <span>Atracciones</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#favoritos-section" class="nav-link favoritos">
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <span>Favoritos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#historial-section" class="nav-link historial">
+                        <ion-icon name="stopwatch-outline"></ion-icon>
+                        <span>Historial</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#clima-section" class="nav-link clima">
+                        <ion-icon name="cloud-outline"></ion-icon>
+                        <span>Clima</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#perfil-section" class="nav-link perfil">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <span>Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <div class="linea"></div>
+
+            <div class="modo-oscuro">
+
+                <div class="info">
+                    <ion-icon name="moon-outline"></ion-icon>
+                    <ion-icon name="sunny-outline"></ion-icon>
+                    <p>modo oscuro</p>
+                </div>
+                <div class="switch">
+                    <div class="base">
+                        <div class="circulo">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- el contenido va a ser de manera horizontal, 
+colocar los links para que se valla de manera directa,
+formulario de inicio de sesion con el localstorage 
+y
+colocar las apis.-->
+    <main>
+        <!-- Dashboard / Inicio Section -->
+        <section id="dashboard-section" class="content-section visible-seccion">
+            <div class="welcome-banner">
+                <h1 id="welcome-message">¡Bienvenido nuevamente!</h1>
+                <p>Descubre el mundo, consulta el clima local y planifica tu próxima aventura.</p>
+            </div>
+            <div class="dashboard-grid">
+                <div class="dash-card">
+                    <div class="dash-card-icon">
+                        <ion-icon name="earth-outline"></ion-icon>
+                    </div>
+                    <div class="dash-card-info">
+                        <h3 id="dash-countries-count">0</h3>
+                        <p>Países Consultados</p>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <div class="dash-card-icon">
+                        <ion-icon name="heart-outline"></ion-icon>
+                    </div>
+                    <div class="dash-card-info">
+                        <h3 id="dash-favorites-count">0</h3>
+                        <p>Destinos Favoritos</p>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <div class="dash-card-icon">
+                        <ion-icon name="map-outline"></ion-icon>
+                    </div>
+                    <div class="dash-card-info">
+                        <h3 id="dash-attractions-count">0</h3>
+                        <p>Atracciones Favoritas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-extra">
+                <div class="info-card">
+                    <h3>Consejo del Día</h3>
+                    <p id="travel-quote">"Viajar es la única cosa que compras que te hace más rico." - Anónimo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explorar / Buscador Section -->
+        <section id="explorar-section" class="content-section oculto-seccion">
+            <div class="search-header">
+                <h2>Buscador de Destinos</h2>
+                <div class="search-filters">
+                    <div class="search-box-wrapper">
+                        <ion-icon name="search-outline"></ion-icon>
+                        <input type="text" id="country-input" placeholder="Buscar país por nombre...">
+                    </div>
+                    <div class="select-box-wrapper">
+                        <ion-icon name="filter-outline"></ion-icon>
+                        <select name="filter-input" id="filter-input">
+                            <option value="All">Todos los continentes</option>
+                            <option value="Americas">América</option>
+                            <option value="Africa">África</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Europe">Europa</option>
+                            <option value="Oceania">Oceanía</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loader -->
+            <div id="loader" class="loader-container hidden">
+                <div class="spinner"></div>
+                <p>Cargando destinos...</p>
+            </div>
+
+            <!-- Countries list container -->
+            <div id="country-list-container" class="country-list-container"></div>
+
+            <!-- Country details container -->
+            <div id="country-detail-container" class="country-detail-container hidden"></div>
+        </section>
+
+        <!-- Clima Section -->
+        <section id="clima-section" class="content-section oculto-seccion">
+            <div class="section-header">
+                <h2>Clima Actual</h2>
+                <p>Busca un país y consulta su clima actual con Open Meteo.</p>
+            </div>
+            <div class="weather-search-panel">
+                <div class="search-box-wrapper weather-search-box">
+                    <ion-icon name="search-outline"></ion-icon>
+                    <input type="text" id="weather-country-input" placeholder="Buscar país para clima...">
+                </div>
+                <button id="weather-search-btn" class="logout-btn">Buscar clima</button>
+            </div>
+            <div id="weather-result-container" class="weather-result-container">
+                <div class="empty-state">
+                    <h3>Introduce un país y presiona buscar.</h3>
+                </div>
+            </div>
+            <div class="currency-converter-panel">
+                <h3>Convertidor de Moneda</h3>
+                <div class="currency-input-row">
+                    <input type="number" id="currency-amount-input" placeholder="Cantidad" min="0" step="any">
+                </div>
+                <div class="currency-selector-row">
+                    <div class="currency-select-wrapper">
+                        <label for="currency-base-select">Desde</label>
+                        <select id="currency-base-select"></select>
+                    </div>
+                    <div class="currency-select-wrapper">
+                        <label for="currency-target-select">Hacia</label>
+                        <select id="currency-target-select"></select>
+                    </div>
+                </div>
+                <button id="currency-convert-btn" class="logout-btn">Convertir</button>
+                <div id="currency-conversion-result" class="currency-result-card">
+                    <p>Elige una cantidad y monedas para ver la conversión.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atracciones Section -->
+        <section id="atracciones-section" class="content-section oculto-seccion">
+            <div class="section-header">
+                <h2>Atracciones Turísticas</h2>
+                <p id="attractions-subtitle">Selecciona un país en la pestaña de Explorar para ver sus principales
+                    atracciones.</p>
+            </div>
+            <div class="attractions-search-panel">
+                <div class="search-box-wrapper attractions-search-box">
+                    <ion-icon name="search-outline"></ion-icon>
+                    <input type="text" id="attractions-search-input" placeholder="Buscar país para atracciones...">
+                </div>
+                <button id="attractions-search-btn" class="logout-btn">Buscar atracciones</button>
+            </div>
+            <div id="attractions-loader" class="loader-container hidden">
+                <div class="spinner"></div>
+                <p>Buscando atracciones cercanas...</p>
+            </div>
+            <div id="attractions-list-container" class="attractions-list-container"></div>
+        </section>
+
+        <!-- Favoritos Section -->
+        <section id="favoritos-section" class="content-section oculto-seccion">
+            <div class="section-header">
+                <h2>Mis Favoritos</h2>
+            </div>
+            <div class="favorites-tabs">
+                <button class="fav-tab-btn active" data-tab="fav-countries">Destinos Favoritos</button>
+                <button class="fav-tab-btn" data-tab="fav-attractions">Atracciones Favoritas</button>
+            </div>
+            <div id="fav-countries" class="fav-tab-content active-content">
+                <div id="fav-countries-container" class="favorites-grid"></div>
+            </div>
+            <div id="fav-attractions" class="fav-tab-content">
+                <div id="fav-attractions-container" class="favorites-grid"></div>
+            </div>
+        </section>
+
+        <!-- Historial Section -->
+        <section id="historial-section" class="content-section oculto-seccion">
+            <div class="section-header flex-header">
+                <h2>Historial de Consultas</h2>
+                <button id="clear-history-btn" class="danger-btn">
+                    <ion-icon name="trash-outline"></ion-icon> Limpiar Historial
+                </button>
+            </div>
+            <div class="timeline-container">
+                <ul id="history-timeline-list" class="timeline"></ul>
+            </div>
+        </section>
+
+        <!-- Perfil Section -->
+        <section id="perfil-section" class="content-section oculto-seccion">
+            <div class="section-header">
+                <h2>Mi Perfil de Viajero</h2>
+            </div>
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                </div>
+                <div class="profile-details">
+                    <div class="profile-field">
+                        <label>Nombre Completo</label>
+                        <p id="profile-name">Cargando...</p>
+                    </div>
+                    <div class="profile-field">
+                        <label>Correo Electrónico</label>
+                        <p id="profile-email">Cargando...</p>
+                    </div>
+                    <div class="profile-field">
+                        <label>País de Residencia</label>
+                        <p id="profile-country">Cargando...</p>
+                    </div>
+                </div>
+                <button id="logout-btn" class="logout-btn">
+                    <ion-icon name="log-out-outline"></ion-icon> Cerrar Sesión
+                </button>
+            </div>
+        </section>
+    </main>
+
+
+
+    <script src="pagprincipal.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+</body>
